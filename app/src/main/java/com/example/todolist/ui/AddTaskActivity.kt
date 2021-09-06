@@ -28,6 +28,7 @@ class AddTaskActivity : AppCompatActivity() {
         binding = ActivityAddTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         if (intent.hasExtra(TASK_ID)) {
             val taskId = intent.getIntExtra(TASK_ID, 0)
             TaskDataSource.findById(taskId)?.let {
@@ -100,6 +101,9 @@ class AddTaskActivity : AppCompatActivity() {
                 Toast.makeText(this, "Tarefa incluida", Toast.LENGTH_SHORT).show()
                 finish()
             }
+        }
+        binding.toolbar.setOnClickListener {
+            finish()
         }
     }
 
